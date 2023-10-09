@@ -188,7 +188,7 @@ export default class MathsController extends Controller {
     put() { throw new NotImplementedException(); }
     remove() { throw new NotImplementedException(); }
     help() {
-        let helpPagePath = path.join(process.cwd(), wwwroot, 'API-Maths-Help.html');
+        let helpPagePath = path.join(process.cwd(), wwwroot, 'Maths//API-Maths-Help.html');
         this.HttpContext.response.HTML(fs.readFileSync(helpPagePath));
     }
     get() {
