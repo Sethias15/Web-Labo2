@@ -4,10 +4,11 @@ export default class Math extends Model {
     constructor() {
         super();
 
-        this.addField('Title', 'string');
-        this.addField('Url', 'url');
+        this.addField('Op', 'string');
+        this.addField('x', 'int');
+        this.addField('y', 'int');
+        this.addField('n', 'int');
+        this.addField('Value', 'string');
         this.addField('Error', 'string');
-              
-        this.setKey("Title");
     }
 }

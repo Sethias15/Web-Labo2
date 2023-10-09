@@ -85,7 +85,6 @@ export default class MathsController extends Controller {
     }
 
     factorial(n) {
-        console.log(n);
         if (n === 0 || n === 1) {
             return 1;
         }
@@ -115,7 +114,6 @@ export default class MathsController extends Controller {
     }
     doOperation() {
         let params = this.HttpContext.path.params;
-        //console.log(params);
         let op = params["op"];
         let response = { "op": op } //Makes op first for ease of view
         for (var key in params) {
@@ -182,7 +180,7 @@ export default class MathsController extends Controller {
                     break;
             }
         } else {
-            this.HttpContext.response.badRequest("Aucune opération fournie.");
+            this.HttpContext.response.unprocessable("Aucune opération fournie.");
         }
     }
 
