@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta author="Nicolas Chourot">
+    <meta http-equiv="Content-Type" content="text/html; charset= ISO-8859-1">
+    <title>Test Maths API</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <style>
+        body {
+            width: 1200px;
+            margin: auto;
+        }
+
+        input {
+            width: 260px;
+        }
+
+        .container {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Page d'aide du service /api/maths</h1>
+    <h2>Liste des requêtes possible:</h2>
+    <div class="container"></div>
+
+    <script src="../Maths/js/jquery-3.3.1.js"></script>
+
+    <script defer>
+        showResults();
+
+        function showResults() {
+            $(".container").empty();
+            showResult({op:"+", x:"nombre", y:"nombre", value:"x + y"})
+            showResult({op:"-", x:"nombre", y:"nombre", value:"x - y"})
+            showResult({op:"*", x:"nombre", y:"nombre", value:"x * y"})
+            showResult({op:"/", x:"nombre", y:"nombre", value:"x / y"})
+            showResult({op:"%", x:"nombre", y:"nombre", value:"x % y"})
+            showResult({op:"!", n:"nombre entier positif", value:"la factorielle de n"})
+            showResult({op:"n", n:"nombre entier positif", value:"true si n est un nombre premier"})
+            showResult({op:"np", n:"nombre entier positif", value:"le nième nombre premier"})
+        }
+
+        function showResult(result) {
+            $(".container").append("-".repeat(100)).append("<br>Requête: ");
+            for (var key in result) {
+                if (key == "op")
+                    $(".container").append("?" + key + "=" + result[key]);
+                else if (key != "value" && key != "error")
+                    $(".container").append("&" + key + "=" + result[key]);
+            }
+            $(".container").append("<br><br>Paramètres: ");
+            for (var key in result) {
+                if (key == "op")
+                    $(".container").append("<br>" + key + " = " + result[key]);
+                else if (key != "value" && key != "error")
+                    $(".container").append("<br>" + key + " = " + result[key]);
+            }
+            $(".container").append("<br><br>Retourne " + JSON.stringify(result)).append($("<br>"));
+        }
+    </script>
+</body>
+
+</html>
