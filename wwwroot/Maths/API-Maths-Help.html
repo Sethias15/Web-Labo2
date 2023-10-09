@@ -45,7 +45,7 @@
         }
 
         function showResult(result) {
-            $(".container").append("-".repeat(100)).append("<br>Requête: ");
+            $(".container").append("<hr>").append("<br>Requête: ");
             for (var key in result) {
                 if (key == "op")
                     $(".container").append("?" + key + "=" + result[key]);
